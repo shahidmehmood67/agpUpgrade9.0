@@ -7,6 +7,14 @@ plugins {
     alias(libs.plugins.composeCompiler)
 }
 
+kotlin {
+    target {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_11)
+        }
+    }
+}
+
 android {
     namespace = "com.myapplication.cmp.myapplicationcmp"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -34,15 +42,8 @@ android {
     }
 }
 
-kotlin {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_11)
-    }
-}
-
 dependencies {
     implementation(projects.composeApp)
     implementation(libs.androidx.activity.compose)
     implementation(libs.compose.uiToolingPreview)
-    debugImplementation(libs.compose.uiTooling)
 }
