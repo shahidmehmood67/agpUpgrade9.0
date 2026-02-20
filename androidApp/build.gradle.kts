@@ -12,6 +12,12 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
+
+    dependencies {
+        implementation(projects.composeApp)
+        implementation(libs.androidx.activity.compose)
+        implementation(libs.compose.uiToolingPreview)
+    }
 }
 
 android {
@@ -39,10 +45,4 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-}
-
-dependencies {
-    implementation(projects.composeApp)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.compose.uiToolingPreview)
 }
